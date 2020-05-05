@@ -20,20 +20,12 @@ public class Admin extends User{
 	public void removeRoom(long roomID) {
 		System.out.println("The remove of room to admin is different because if the user leave room that he created, the room is delete of system.");
 	}
-	@Override
-	public void addUser(Room room, Normal user) {//add user gonna success if the user is admin
-		if(user.getID() != this.getID()) {
-			room.addUser(user);
-		}
-	}
 	public void setRoomNick(Room room,String nick) {
 		room.setRoomNick(nick);
 	}
-	public boolean kickUser(Room room, Normal user) {
-		return room.kickUser(user);
+	@Override
+	public void addUser(Room room, Normal user) {
+		// TODO Auto-generated method stub
 	}
-	/*public void setSchedule(Session session,Date schedule) {
-		session.setSchedule(schedule);
-	}*/
 	
 }

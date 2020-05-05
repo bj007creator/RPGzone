@@ -3,7 +3,6 @@ package com.rpgzonewebrest.models.user;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import com.rpgzonewebrest.models.room.Room;
@@ -23,7 +22,7 @@ public abstract class User implements Serializable {/**
 	private Date lastLogin;
 	private String profilePicture;
 	private String bio;
-	private List<Room> rooms = new ArrayList<Room>();
+	private List<Long> rooms = new ArrayList<Long>();
 	private static Long userCounting = new Long(0);//this counter never be same, always to staying auto increment he never gonna be the same
 	
 	public static Long generateUserID() {
@@ -73,7 +72,7 @@ public abstract class User implements Serializable {/**
 		this.type = type;
 	}
 	public void getRoomId(Room room) {
-		room.getID();
+		room.getRoomID();
 	}
 	public String getNickName() {
 		return nickName;
@@ -93,33 +92,11 @@ public abstract class User implements Serializable {/**
 	public void setPro(Boolean pro) {
 		this.pro = pro;
 	}
-	public List<Room> getRooms() {
+	public List<Long> getRooms() {
 		return this.rooms;
 	}
-	public void addRoom(Room room) {
-		if(this.rooms.size() < 5) {
-			this.rooms.add(room);
-		}
-	}
-	
-	@Override
-	public String toString() {//text form of this object
-		String userRooms = "";
-		for(Iterator<Room> iterator = this.rooms.iterator(); iterator.hasNext();) {
-			userRooms += ( iterator.next() + "\n" );
-		}
-			
-		return "userID : " + this.userID + "\n" +
-			   "password : " + this.password + "\n" +
-			   "type : " + this.type + "\n"+
-			   "nickname : " + this.nickName + "\n" +
-			   "email : " + this.email + "\n"+
-			   "pro ? " + this.pro + "\n" +
-			   "bio : " + this.bio + "\n" +
-			   "last login : " + this.lastLogin + "\n" +
-			   "Rooms of this user => \n"+
-			   userRooms;
-			   
+	public void setRooms(List<Long> rooms) {
+		this.rooms = rooms;
 	}
 	@Override
 	public boolean equals(Object obj) {

@@ -78,7 +78,6 @@ public class NormalDAO implements DAO<Normal, Long>{
 		int index = users.indexOf(user);
 		if(index != -1) {
 			users.set(index, user);
-			System.out.println(user);
 		}
 		saveToFile(users);
 	}
@@ -96,7 +95,6 @@ public class NormalDAO implements DAO<Normal, Long>{
 		try {
 			close();
 			file.delete();//deletar base de dados para regravar os dados atualizados
-			System.out.println(file.getName());
 			fos = new FileOutputStream(file.getName(), true);
 			outputFile = new ObjectOutputStream(fos);
 			for(Normal user : users) {

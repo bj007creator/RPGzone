@@ -1,6 +1,5 @@
 package com.rpgzonewebrest.rpgzonewebrest.resource;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -41,11 +40,7 @@ public class UserResource {
 	@PostMapping(produces="application/json")
 	public ResponseEntity<UserDTO> add(@RequestBody Normal user) {
 		//Rota de registro de usuário fazer validação de usuários iguais na base de dados e verificar validade de email
-		try {
-			user.setProfilePicture(UrlGravatarGenerator.urlGravatar(user.getEmail()));
-		} catch(NoSuchAlgorithmException e) {
-			user.setProfilePicture("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngitem.com%2Fmiddle%2FTmRbxm_free-overlay-twitch-red-clipart-png-download-czowiek%2F&psig=AOvVaw1YtlghCnf4UhA9i41issFn&ust=1587773843190000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNiutIPo_-gCFQAAAAAdAAAAABAK");
-		}//foto padrão se caso não der certo para gerar uma
+		user.setProfilePicture( UrlGravatarGenerator.urlGravatar(user.getEmail()) );
 		user.setPro( false);
 		user.setLastLogin(new Date(System.currentTimeMillis()));
 		user.setType("Normal");//Definindo as características do usuário default;
@@ -148,6 +143,7 @@ public class UserResource {
 		userLogged.setLastLogin(lastLoginRestored);
 		userLogged.setType(typeRestored);
 		userLogged.setNickname(newUser.getNickName());
+		userLogged.setProfilePicture( UrlGravatarGenerator.urlGravatar(userLogged.getEmail()) );
 		
 		UserDTO userDTO = new UserDTO(userLogged);
 		

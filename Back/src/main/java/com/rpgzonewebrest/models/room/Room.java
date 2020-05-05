@@ -1,15 +1,14 @@
 package com.rpgzonewebrest.models.room;
 
-//import java.sql.Date;
-
-//import session.Session;
-import com.rpgzonewebrest.models.user.Normal;
-import com.rpgzonewebrest.models.user.Admin;
-import com.rpgzonewebrest.models.user.User;
 //import utils.Local;
 import java.io.Serializable;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+
+//import java.sql.Date;
+
+import com.rpgzonewebrest.models.user.Admin;
+import com.rpgzonewebrest.rpgzonewebrest.config.RoomConfig;
 
 public class Room implements Serializable {
 	/**
@@ -17,30 +16,31 @@ public class Room implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Admin admin;
-	private long roomID;
+	private Long roomID;
 	private String roomNick;
-	private List<Normal> users = new ArrayList<Normal>();
-	private static long roomCounting = 0;
+	private RoomConfig roomConfig;
+	private String roomDescription;
+	private List<Long> users = new ArrayList<Long>();
+	private static Long roomCounting = new Long(0);
 	
-	public static long generateRoomID() {
-		return roomCounting++;
+	public static Long generateRoomID() {
+		roomCounting = new Long( roomCounting + 1 );
+		return new Long( roomCounting.longValue() );
 	}
-	public Room(Admin admin, long roomID, String roomNick) {
-		this.admin = admin;
-		this.roomID = roomID;
-		this.roomNick = roomNick;
+	public Room() {
+		//construtor vazio necessário
 	}
-	public User getAdmin() {
+	public Admin getAdmin() {
 		return admin;
 	}
 	
 	public void setAdmin(Admin admin) {
 		this.admin = admin;
 	}
-	public long getID() {
+	public Long getRoomID() {
 		return roomID;
 	}
-	public void setID(long iD) {
+	public void setRoomID(Long iD) {
 		roomID = iD;
 	}
 	public String getRoomNick() {
@@ -49,35 +49,30 @@ public class Room implements Serializable {
 	public void setRoomNick(String roomNick) {
 		this.roomNick = roomNick;
 	}
-	public void addUser(Normal user) {
-		if(users.size() < 5) {
-			users.add(user);
-		}
+	public List<Long> getUsers() {
+		return users;
 	}
-	public boolean kickUser(Normal user) {
-		int index = this.users.indexOf(user);
-		if(index != -1) {
-			this.users.remove(index);
-			return true;
-		}
-		return false;
+	public void setUsers(List<Long> users) {
+		this.users = users;
 	}
-	/*public void newSession(Local local, Date schedule) {
-		Session currentSession = new Session();
-		currentSession.setLocal(local);
-		currentSession.setSchedule(schedule);
-	}*/
-	public Object returnUserStateInRoom(User logged) {//se o usu�rio logado for o admin retorna Um objeto Admin retorna uma instancia como admin para uso dos m�todos de admin sen�o retorna Normal se encontrar ele nesta sala
-		int index = this.users.indexOf(logged); 
-		if(index != -1) {
-			return logged.equals(this.admin) ? this.admin : users.get(index);
-		}
-		return null;
+	
+	public String getRoomDescription() {
+		return roomDescription;
+	}
+	public void setRoomDescription(String roomDescription) {
+		this.roomDescription = roomDescription;
+	}
+	
+	public RoomConfig getRoomConfig() {
+		return roomConfig;
+	}
+	public void setRoomConfig(RoomConfig roomConfig) {
+		this.roomConfig = roomConfig;
 	}
 	
 	@Override
 	public boolean equals(Object room) {
-		return this.getID() == ( (Room) room ).getID();
+		return this.getRoomID().longValue() == ( (Room) room ).getRoomID().longValue();
 	}
 	
 	@Override
