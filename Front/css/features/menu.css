@@ -7,7 +7,7 @@
     background-color: rgba(0,0,0,.7);
     opacity: 0;
     transition: opacity 1s;
-    z-index: 40;
+    z-index: 249;
 }
 .menu-open{
     background: #900;
@@ -27,10 +27,11 @@
     top: 0;
     right: -290px;
     height: 100%;
-    z-index: 40;
+    z-index: 250;
     transition: 0.5s;
     width: 250px;
     font-family: 'Open Sans', sans-serif;
+
 }
 .menu ul{
     list-style: none;

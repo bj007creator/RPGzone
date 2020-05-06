@@ -1,50 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/room.css">
-    <link rel="stylesheet" type="text/css" href="../css/global.css">
-    <link rel="stylesheet" type="text/css" href="../css/features/switch.css">
-	<script type="text/javascript" src="../js/globalJS.js"></script>
-    <title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Room Inside</title>
+	<link rel="stylesheet" type="text/css" href="../css/room.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.css">
+	<link rel="stylesheet" type="text/css" href="../css/features/menu.css">
+	<link rel="stylesheet" type="text/css" href="../css/features/switch.css">
+	<link rel="stylesheet" type="text/css" href="../css/features/buttons.css">
+
+
 </head>
-<body id="body">
-    <div id="header">
-        <img id="logo" src="../assets/logo.png">
-     </div>`
-<div>
-     <div id="sidebar">
-         <ol>
-             <li><i class="fas fa-users"></i></li>
-             <li><i class="fas fa-hashtag"></i></li>
-             <li><i class="fas fa-user"></i></li>
-             <li><i class="fas fa-plus"></i></li>
-             <li><i class="fas fa-search"></i></li>
-         </ol>
-     </div>
-     <div id="users-sidebar">
-         <h1>Users</h1>
-        <li><i class="fas fa-user"></i><a>Teste</a></li>
-     </div>
 
-     <div id="dash">
-        <div id="next-session">
-            <h2>Proximas Sessoes</h2>
-            <div class="session-date">Friday - 26/07</div>
-            <div class="session-date">Friday - 26/07</div>
-            <div class="session-date">Friday - 26/07</div>
-            <div class="session-date">Friday - 26/07</div>
-            <div class="session-date">Friday - 26/07</div>
-            <div class="session-date">Friday - 26/07</div>
-        </div>
-    </div>
+<body>
+	<div id="header">
+		<img id="logo" src="../assets/logo.png">
+		<i class="menu-open fas fa-bars"></i>
+	</div>
 
+	<!-- -------------------------- Menu lateral -------------------------------------------- -->
+	<div id="sidebar"></div>
+	<!-- ----------------------- Fim do Menu Lateral------------------------------------------ -->
 
+	<!-- Float Menu-->
+	<div class="fab" ontouchstart="">
+		<button class="main">
+			<i class="fas fa-dice"></i>
+		</button>
+		<ul>
+			<li>
+				<label>Add Player</label>
+				<button onclick="refreshURL('../html/players-search.html')" id="player-search-button">
+					<i class="fas fa-user-plus"></i>
+				</button>
+			</li>
+			<li>
+				<label>New Session</label>
+				<button onclick="refreshURL('../html/new-session.html')" id="new-session-button">
+					<i class="fas fa-plus"></i>
+				</button>
+			</li>
+			<li>
+				<label>Game Manual</label>
+				<button onclick="refreshPDF('idiscepolidellamanticora.files.wordpress.com/2012/09/tsr2010-players-handbook.pdf')" id="manual-game-button">
+					<i class="fas fa-user-plus"></i>
+				</button>
+			</li>
+		</ul>
+	</div>
 
-</div>
-     </div>
+	<!-- Dashboard-->
+	<div class="dashboard" id="dashboard">
+		<!-- Column 1-->
+		<div class="col-1">
+			<!-- Sidebar-->
+			<div class="sidebar" id="users">
+				<h5>Players:</h5>
+				<ul id="players-list">
+					<li><a href="" class="nickname">Nome</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Column 2-->
+		<div class="col-2">
+			<!-- Dynamic Options-->
+			<div class="option" id="embed-contents">
+				<!-- Dynamic PDF-->
+				<object style="display: none;" id="object-pdf" data="" type="application/pdf"><embed id="embed-pdf" src="" type="application/pdf" /></object>
+				<!-- Dynamic URL-->
+				<iframe id="embed-url" sandbox="allow-same-origin allow-scripts allow-forms" scrolling="no" src="../html/info.html"></iframe>
+			</div>
+		</div>
+		<!-- Column 3-->
+		<div class="col-3">
+			<!-- Row 1 - Column 3-->
+			<!-- Dynamic Map-->
+			<div class="row-1">
+				<div class="map">
+					<div class="map-container">
+						<div id="reload" onclick="refreshMap('Brazil','31160440');" class="reload">
+							<i class="fas fa-redo"></i>
+							<span>Click to load your map!</span>
+						</div>
+						<div id="myMap" style="height: 100%;;width:100%;"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Row 2 - Column 3-->
+			<!-- Next Session-->
+			<div class="row-2">
+				<div class="sessions">
+					<div class="next-sessions-container">
+						<h5>Next Sessions:</h5>
+						<div id="next-sessions" style="position:relative;width:100%;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
-</html>
+<script src="../js/fetch.js"></script>
+<script src="../js/userMethods.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/globalJS.js"></script>
+<script src="../js/roomJS.js"></script>
 
+<!-- Mapa-->
+<script
+	src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnzqHklo_lvZR_czqcvXPo-hrYNQ6qElpbIAOWL0U6fgDrJxdvdKazPtBPlFklpu"
+	async defer>
+</script>
+
+</html>

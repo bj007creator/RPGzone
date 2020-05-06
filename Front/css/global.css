@@ -102,7 +102,7 @@ button:focus{
     top: 0%;
     border-bottom: double 0.5em;
     position: fixed;
-    z-index: 4;
+    z-index: 100;
     width: 100%;
     height: 52px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);

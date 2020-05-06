@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>New session</title>
+	<link rel="stylesheet" type="text/css" href="../css/forms.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="../css/features/menu.css">
+    <link rel="stylesheet" type="text/css" href="../css/features/buttons.css">
+</head>
+
+<body>
+	<div id="header">
+		<img id="logo" src="../assets/logo.png">
+		<i class="menu-open fas fa-bars"></i>
+	</div>
+
+	<!-- -------------------------- Menu lateral -------------------------------------------- -->
+	<div id="sidebar"></div>
+	<!-- ----------------------- Fim do Menu Lateral------------------------------------------ -->
+	<div id="new-session-form">
+	<div class="dates" id="new-session-dates">
+		<div class="section">
+			<h1>New Session</h1>
+			<form>
+			<div class="dates-fields" id="session-dates-fields">
+				<h5 style="text-align:center;padding:5%;font-family: 'Press Start 2P', cursive;font-size: 1.5em;color:#fff">Session Date:</h5>
+				<input type="text" name="session-date" placeholder="00/00/0000" onkeyup="mascara('##/##/####',this,event,true)" required="required" />
+				<h5 style="text-align:center;padding:5%;font-family: 'Press Start 2P', cursive;font-size: 1.5em;color:#fff">Session Local:</h5>
+				<input type="text" name="session-city" placeholder="City" required="required" /><br>
+				<input type="text" name="session-neighborhood" placeholder="Neighborhood" required="required" /><br>
+				<input type="text" name="session-street" placeholder="Sreet" required="required" /><br>
+				<input type="text" name="session-number" placeholder="Number" required="required" /><br>
+				<input type="text" name="session-zipcode" placeholder="Zipcode" required="required" /><br>
+			</div>
+				<div class="buttons-field">
+                    <button type="submit" class="btn-yes btn-yes-primary btn-yes-large">Add</button>
+                </div>
+			</form>
+		</div>
+	</div>
+</body>
+<script src="../js/fetch.js"></script>
+<script src="../js/userMethods.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/globalJS.js"></script>
+<script src="../js/masks.js"></script>
+
+</html>
