@@ -1,0 +1,41 @@
+{
+        title: "Warhammer"
+        year: 1975
+        publisher: Fantasy Flight games
+        lang: English
+        src: ../assets/rpgdb/thumb/warhammer.jpg
+        pdf: http://khorne.ru/2nd/wfrp_web/Core.pdf
+}
+{
+        title: "Refugios dos Amaldicoados"
+        year: 2002
+        publisher: White Wolf Publishing Inc.
+        lang: Portuguese
+        src: ../assets/rpgdb/thumb/refugios_dos_amaldicoados.jpg
+        pdf: https://www.bibliotecaelfica.org/download/vampiro-a-mascara-refugios-dos-amaldicoadoslij1igudayrukjfzobbvwpjw/
+}
+{
+        title: "StarFinder"
+        year: 2017
+        publisher: Paizo
+        lang: English
+        src: ../assets/rpgdb/thumb/starfinder.png
+        pdf: https://tesera.ru/images/items/1052720/PZO950011E.pdf
+}
+{
+        title: "Warhammer"
+        year: 1975
+        publisher: Fantasy Flight games
+        lang: English
+        src: ../assets/rpgdb/thumb/warhammer.jpg
+        pdf: http://khorne.ru/2nd/wfrp_web/Core.pdf
+}
+{
+        title: "Warhammer"
+        year: 1975
+        publisher: Fantasy Flight games
+        lang: English
+        src: ../assets/rpgdb/thumb/warhammer.jpg
+        pdf: http://khorne.ru/2nd/wfrp_web/Core.pdf
+}
+

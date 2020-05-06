@@ -12,13 +12,15 @@ public class Game  implements Serializable{
 	private String publisher;
 	private String language;
 	private String gameImage;
+	private String pdfGuide;
 	
-	public Game(String title, int year, String publisher, String language, String gameImage) {
+	public Game(String title, int year, String publisher, String language, String gameImage, String pdfGuide) {
 		this.title = title;
 		this.year = year;
 		this.publisher = publisher;
 		this.language = language;
 		this.gameImage = gameImage;
+		this.pdfGuide = pdfGuide;
 	}
 	public Game() {
 		
@@ -55,6 +57,13 @@ public class Game  implements Serializable{
 
 	public void setGameImage(String gameImage) {
 		this.gameImage = gameImage;
+	}
+	public String pdfGuide() {
+		return gameImage;
+	}
+
+	public void pdfGuide(String pdfGuide) {
+		this.pdfGuide = pdfGuide;
 	}
 	
 }
